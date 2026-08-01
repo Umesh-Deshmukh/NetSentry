@@ -56,6 +56,8 @@ Safety
 Only scan networks and hosts where you have explicit permission. NetSentry does not include exploit payloads, brute force logic, credential attacks, evasion, or stealth behavior.
 
 Project Structure
+
+
 app.py              Web server and JSON API
 launcher.py         Desktop launcher application
 scanner.py          Scanner engine and CLI
