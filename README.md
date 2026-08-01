@@ -1,0 +1,68 @@
+NetSentry
+NetSentry is a small defensive network vulnerability scanner with a built-in website. It performs safe, non-exploit checks against systems you own or are authorized to test.
+
+Features
+TCP port scanning with a conservative concurrency limit
+Banner grabbing for common plaintext services
+HTTP and HTTPS checks
+Missing security header detection
+TLS certificate metadata collection
+Simple risk scoring and findings
+Built-in web interface and JSON API
+CLI mode for terminal scans
+Requirements
+Python 3.10 or newer
+No third-party packages
+Run The Application
+Windows:
+
+.\run-windows.ps1
+Or double-click:
+
+run-windows.bat
+Linux:
+
+chmod +x run-linux.sh
+./run-linux.sh
+The launcher opens a small desktop window. Click Start App, then use the browser window that opens.
+
+Manual web-server run on either system:
+
+python app.py --open
+If the browser does not open automatically, open the URL printed in the terminal:
+
+http://127.0.0.1:8080
+If port 8080 is busy, the app automatically tries the next available port and prints the correct URL.
+
+python app.py --port 8081
+Do not open static/index.html directly in Chrome. The website needs the local Python server because scan results come from /api/scan.
+
+Login
+Admin access:
+
+Email: xyz@gmail.com
+Password: Qazxc123456789?
+Common user access:
+
+Use any valid email address and any password with at least 4 characters.
+Admin users can enable public authorized scans and larger port sets. Common users are limited to private/local targets and smaller port scans.
+
+Run The CLI
+python scanner.py 127.0.0.1 --ports 22,80,443,8000-8100
+Save JSON:
+
+python scanner.py 127.0.0.1 --ports common --json report.json
+Safety
+Only scan networks and hosts where you have explicit permission. NetSentry does not include exploit payloads, brute force logic, credential attacks, evasion, or stealth behavior.
+
+Project Structure
+app.py              Web server and JSON API
+launcher.py         Desktop launcher application
+scanner.py          Scanner engine and CLI
+run-windows.bat     Windows app launcher
+run-windows.ps1     PowerShell app launcher
+run-linux.sh        Linux/macOS app launcher
+static/index.html   Website markup
+static/styles.css   Website styling
+static/app.js       Website behavior
+owner Umesh Deshmukh
